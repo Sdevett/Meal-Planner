@@ -14,6 +14,7 @@ namespace Meal_Planner
     {
         List<Recipe> recipeBook = new List<Recipe>();
         Recipe selected;
+        bool newItem = false;
         public Form2()
         {
             InitializeComponent();
@@ -33,6 +34,9 @@ namespace Meal_Planner
             }
             panel1.Enabled = true;
             panel1.Visible = true;
+            newItem = true;
+            button4.Enabled = true;
+            button4.Visible = true;
             textBox1.Clear();
             textBox1.Focus();
         }
@@ -44,6 +48,9 @@ namespace Meal_Planner
                 panel1.Enabled = false;
                 panel1.Visible = false;
             }
+            newItem = true;
+            button8.Enabled = true;
+            button8.Visible = true;
             panel2.Enabled = true;
             panel2.Visible = true;
             richTextBox1.Clear();
@@ -59,6 +66,8 @@ namespace Meal_Planner
 
         private void button5_Click(object sender, EventArgs e)
         {
+            if (!newItem)
+                listBox1.Items[listBox1.SelectedIndex] = textBox1.Text;
             panel1.Enabled = false;
             panel1.Visible = false;
         }
@@ -72,38 +81,42 @@ namespace Meal_Planner
 
         private void button9_Click(object sender, EventArgs e)
         {
+            if (!newItem)
+            {
+                listBox2.Items[listBox2.SelectedIndex] = richTextBox1.Text;
+            }
             panel2.Enabled = false;
             panel2.Visible = false;
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            if(listBox1.SelectedIndex >= 0)
+            if (listBox1.SelectedIndex >= 0)
                 listBox1.Items.RemoveAt(listBox1.SelectedIndex);
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
-            if(listBox2.SelectedIndex >= 0)
+            if (listBox2.SelectedIndex >= 0)
                 listBox2.Items.RemoveAt(listBox2.SelectedIndex);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(textBox21.Text.Length !=0)
+            if (textBox21.Text.Length != 0)
             {
-               DialogResult question = MessageBox.Show
-                    (
-                    "It seems that you have a recipe " +
-                    "that you havent added to the recipe book yet." +
-                    " Would you like to add it?"
-                    , "Recipe Left Out!!",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation
-                    );
+                DialogResult question = MessageBox.Show
+                     (
+                     "It seems that you have a recipe " +
+                     "that you havent added to the recipe book yet." +
+                     " Would you like to add it?"
+                     , "Recipe Left Out!!",
+                     MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation
+                     );
 
                 //this is wack
                 bool saveRecipe = question == DialogResult.Yes;
-                if(saveRecipe)
+                if (saveRecipe)
                 {
                     this.button3_Click(sender, e);
                 }
@@ -167,15 +180,43 @@ namespace Meal_Planner
             textBox21.Text = selected.getName();
 
             List<string> selectedData = selected.getIngredients();
-            foreach(string item in selectedData)
+            foreach (string item in selectedData)
                 listBox1.Items.Add(item);
             selectedData = selected.getDirections();
-            foreach(string item in selectedData)
+            foreach (string item in selectedData)
                 listBox2.Items.Add(item);
 
             this.ShowDialog();
             return recipeBook;
         }
 
+        private void listBox2_DoubleClick(object sender, EventArgs e)
+        {
+            if (listBox2.SelectedIndex != -1)
+            {
+                button7_Click(sender, e);
+                string temp = listBox2.SelectedItem.ToString();
+                richTextBox1.Text = temp;
+                newItem = false;
+                button8.Enabled = false;
+                button8.Visible = false;
+
+            }
+
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex != -1)
+            {
+                button6_Click(sender, e);
+                string temp = listBox1.SelectedItem.ToString();
+                textBox1.Text = temp;
+                newItem = false;
+                button4.Enabled = false;
+                button4.Visible = false;
+
+            }
+        }
     }
 }

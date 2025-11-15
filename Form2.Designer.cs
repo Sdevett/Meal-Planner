@@ -111,6 +111,7 @@
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(327, 304);
             listBox1.TabIndex = 11;
+            listBox1.DoubleClick += listBox1_DoubleClick;
             // 
             // label1
             // 
@@ -147,7 +148,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(7, 0);
+            label6.Location = new Point(8, 0);
             label6.Name = "label6";
             label6.Size = new Size(152, 28);
             label6.TabIndex = 16;
@@ -199,6 +200,7 @@
             listBox2.Name = "listBox2";
             listBox2.Size = new Size(409, 304);
             listBox2.TabIndex = 17;
+            listBox2.DoubleClick += listBox2_DoubleClick;
             // 
             // label2
             // 

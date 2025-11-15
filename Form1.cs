@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
+using System.Text;
 
 namespace Meal_Planner
 {
@@ -21,7 +22,38 @@ namespace Meal_Planner
 
         private void button5_Click(object sender, EventArgs e)
         {
+
             Close();
+            FileInfo outputStatus;
+
+            outputStatus = new FileInfo("recipebook.txt");
+            if (!outputStatus.Exists)
+            {
+                MessageBox.Show("We fucked up, somehow the recipebook.txt file dosent exist");
+            }
+            else
+            {
+               StringBuilder sb = new StringBuilder();
+
+                sb.Append(recipes.Count.ToString() + "\n");
+                for(int i = 0; i < recipes.Count; i++)
+                {
+                    Recipe temp = recipes[i];
+                    List<string> tempIng = temp.getIngredients();
+                    List<string> tempDir = temp.getDirections();
+                    sb.Append("\n");
+                    sb.Append(temp.getName() + "\n");
+                    sb.Append(tempIng.Count.ToString() + "\n");
+                    sb.Append(tempDir.Count.ToString() + "\n");
+                    for (int j = 0; j < tempIng.Count; j++)
+                        sb.Append(tempIng[j] + "\n");
+                    for (int k = 0; k < tempDir.Count; k++)
+                        sb.Append(tempDir[k] + "\n");
+                }
+
+                string data = sb.ToString();
+                File.WriteAllText(outputStatus.FullName, data);
+            }
         }
 
         private void addRecipe_Click(object sender, EventArgs e)
@@ -77,6 +109,7 @@ namespace Meal_Planner
                         temp = new Recipe(name, ingredients, directions);
                         recipes.Add(temp);
                     }
+                    input.Close();
                 }
             }
         }
@@ -89,6 +122,11 @@ namespace Meal_Planner
         private void button3_Click(object sender, EventArgs e)
         {
             mealPlanner.SelectedMeals(recipes);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
