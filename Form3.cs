@@ -41,6 +41,7 @@
         {
             selected = (Recipe)listBox1.Items[listBox1.SelectedIndex];
             recipeBook = editForm.EditRecipe(recipeBook, listBox1.SelectedIndex);
+            panel1.Visible = false;
         }
 
         public List<Recipe> showRecipes(List<Recipe> recipes)
@@ -49,6 +50,11 @@
             listBox1.DataSource = recipeBook;
             this.ShowDialog();
             return recipeBook;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

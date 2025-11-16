@@ -52,7 +52,7 @@ namespace Meal_Planner
                 }
 
                 string data = sb.ToString();
-                File.WriteAllText(outputStatus.FullName, data);
+                File.WriteAllText(outputStatus.Name, data);
             }
         }
 

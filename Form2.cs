@@ -22,7 +22,7 @@ namespace Meal_Planner
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            textBox21.Focus();
+            recipeName.Focus();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -35,8 +35,8 @@ namespace Meal_Planner
             panel1.Enabled = true;
             panel1.Visible = true;
             newItem = true;
-            button4.Enabled = true;
-            button4.Visible = true;
+            addIngredientsButton.Enabled = true;
+            addIngredientsButton.Visible = true;
             textBox1.Clear();
             textBox1.Focus();
         }
@@ -49,8 +49,8 @@ namespace Meal_Planner
                 panel1.Visible = false;
             }
             newItem = true;
-            button8.Enabled = true;
-            button8.Visible = true;
+            addDirectionButton.Enabled = true;
+            addDirectionButton.Visible = true;
             panel2.Enabled = true;
             panel2.Visible = true;
             richTextBox1.Clear();
@@ -59,7 +59,7 @@ namespace Meal_Planner
 
         private void button4_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Add(textBox1.Text);
+            ingredientsBox.Items.Add(textBox1.Text);
             textBox1.Clear();
             textBox1.Focus();
         }
@@ -67,7 +67,7 @@ namespace Meal_Planner
         private void button5_Click(object sender, EventArgs e)
         {
             if (!newItem)
-                listBox1.Items[listBox1.SelectedIndex] = textBox1.Text;
+                ingredientsBox.Items[ingredientsBox.SelectedIndex] = textBox1.Text;
             panel1.Enabled = false;
             panel1.Visible = false;
         }
@@ -91,8 +91,8 @@ namespace Meal_Planner
 
         private void button10_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex >= 0)
-                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+            if (ingredientsBox.SelectedIndex >= 0)
+                ingredientsBox.Items.RemoveAt(ingredientsBox.SelectedIndex);
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace Meal_Planner
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox21.Text.Length != 0)
+            if (recipeName.Text.Length != 0)
             {
                 DialogResult question = MessageBox.Show
                      (
@@ -126,31 +126,31 @@ namespace Meal_Planner
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox21.Clear();
-            listBox1.Items.Clear();
+            recipeName.Clear();
+            ingredientsBox.Items.Clear();
             listBox2.Items.Clear();
-            textBox21.Focus();
+            recipeName.Focus();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string name = textBox21.Text;
-            List<string> ingredients = listBox1.Items.Cast<string>().ToList();
+            string name = recipeName.Text;
+            List<string> ingredients = ingredientsBox.Items.Cast<string>().ToList();
             List<string> directions = listBox2.Items.Cast<string>().ToList();
             Recipe temp = new Recipe(name, ingredients, directions);
             recipeBook.Add(temp);
 
-            textBox21.Clear();
-            listBox1.Items.Clear();
+            recipeName.Clear();
+            this.ingredientsBox.Items.Clear();
             listBox2.Items.Clear();
-            textBox21.Focus();
+            recipeName.Focus();
         }
 
 
         private void button12_Click(object sender, EventArgs e)
         {
-            selected.setName(textBox21.Text);
-            selected.setIngredients(listBox1.Items.Cast<string>().ToList());
+            selected.setName(recipeName.Text);
+            selected.setIngredients(ingredientsBox.Items.Cast<string>().ToList());
             selected.setDirections(listBox2.Items.Cast<string>().ToList());
             Close();
         }
@@ -165,23 +165,23 @@ namespace Meal_Planner
 
         public List<Recipe> EditRecipe(List<Recipe> recipes, int selectedIndex)
         {
-            button1.Enabled = false;
-            button2.Enabled = false;
-            button3.Enabled = false;
-            button1.Visible = false;
-            button2.Visible = false;
-            button3.Visible = false;
-            button12.Enabled = true;
-            button12.Visible = true;
+            doneAdding.Enabled = false;
+            resetButton.Enabled = false;
+            addToRecipebook.Enabled = false;
+            doneAdding.Visible = false;
+            resetButton.Visible = false;
+            addToRecipebook.Visible = false;
+            finishedEditing.Enabled = true;
+            finishedEditing.Visible = true;
             this.Text = "Edit Recipe";
             recipeBook = recipes;
 
             selected = recipes[selectedIndex];
-            textBox21.Text = selected.getName();
+            recipeName.Text = selected.getName();
 
             List<string> selectedData = selected.getIngredients();
             foreach (string item in selectedData)
-                listBox1.Items.Add(item);
+                ingredientsBox.Items.Add(item);
             selectedData = selected.getDirections();
             foreach (string item in selectedData)
                 listBox2.Items.Add(item);
@@ -198,8 +198,8 @@ namespace Meal_Planner
                 string temp = listBox2.SelectedItem.ToString();
                 richTextBox1.Text = temp;
                 newItem = false;
-                button8.Enabled = false;
-                button8.Visible = false;
+                addDirectionButton.Enabled = false;
+                addDirectionButton.Visible = false;
 
             }
 
@@ -207,14 +207,14 @@ namespace Meal_Planner
 
         private void listBox1_DoubleClick(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != -1)
+            if (ingredientsBox.SelectedIndex != -1)
             {
                 button6_Click(sender, e);
-                string temp = listBox1.SelectedItem.ToString();
+                string temp = ingredientsBox.SelectedItem.ToString();
                 textBox1.Text = temp;
                 newItem = false;
-                button4.Enabled = false;
-                button4.Visible = false;
+                addIngredientsButton.Enabled = false;
+                addIngredientsButton.Visible = false;
 
             }
         }

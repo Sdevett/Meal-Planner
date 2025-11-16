@@ -29,31 +29,31 @@
         private void InitializeComponent()
         {
             label25 = new Label();
-            textBox21 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            listBox1 = new ListBox();
+            recipeName = new TextBox();
+            doneAdding = new Button();
+            resetButton = new Button();
+            addToRecipebook = new Button();
+            ingredientsBox = new ListBox();
             label1 = new Label();
             textBox1 = new TextBox();
             panel1 = new Panel();
             label6 = new Label();
-            button5 = new Button();
-            button4 = new Button();
+            doneIngredientsButton = new Button();
+            addIngredientsButton = new Button();
             label3 = new Label();
-            button6 = new Button();
+            addIngredients = new Button();
             listBox2 = new ListBox();
             label2 = new Label();
-            button7 = new Button();
+            addDirections = new Button();
             panel2 = new Panel();
             label5 = new Label();
-            button9 = new Button();
-            button8 = new Button();
+            doneDirectionButton = new Button();
+            addDirectionButton = new Button();
             richTextBox1 = new RichTextBox();
             label4 = new Label();
-            button10 = new Button();
-            button11 = new Button();
-            button12 = new Button();
+            deleteIngredient = new Button();
+            deleteDirections = new Button();
+            finishedEditing = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -67,51 +67,51 @@
             label25.TabIndex = 6;
             label25.Text = "Recipe Name:";
             // 
-            // textBox21
+            // recipeName
             // 
-            textBox21.Location = new Point(133, 18);
-            textBox21.Name = "textBox21";
-            textBox21.Size = new Size(170, 27);
-            textBox21.TabIndex = 7;
+            recipeName.Location = new Point(133, 18);
+            recipeName.Name = "recipeName";
+            recipeName.Size = new Size(170, 27);
+            recipeName.TabIndex = 7;
             // 
-            // button1
+            // doneAdding
             // 
-            button1.Location = new Point(38, 452);
-            button1.Name = "button1";
-            button1.Size = new Size(213, 41);
-            button1.TabIndex = 8;
-            button1.Text = "Done";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            doneAdding.Location = new Point(38, 452);
+            doneAdding.Name = "doneAdding";
+            doneAdding.Size = new Size(213, 41);
+            doneAdding.TabIndex = 8;
+            doneAdding.Text = "Done";
+            doneAdding.UseVisualStyleBackColor = true;
+            doneAdding.Click += button1_Click;
             // 
-            // button2
+            // resetButton
             // 
-            button2.Location = new Point(329, 452);
-            button2.Name = "button2";
-            button2.Size = new Size(213, 41);
-            button2.TabIndex = 9;
-            button2.Text = "Reset";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            resetButton.Location = new Point(329, 452);
+            resetButton.Name = "resetButton";
+            resetButton.Size = new Size(213, 41);
+            resetButton.TabIndex = 9;
+            resetButton.Text = "Reset";
+            resetButton.UseVisualStyleBackColor = true;
+            resetButton.Click += button2_Click;
             // 
-            // button3
+            // addToRecipebook
             // 
-            button3.Location = new Point(604, 452);
-            button3.Name = "button3";
-            button3.Size = new Size(213, 41);
-            button3.TabIndex = 10;
-            button3.Text = "Add To Recipebook";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            addToRecipebook.Location = new Point(604, 452);
+            addToRecipebook.Name = "addToRecipebook";
+            addToRecipebook.Size = new Size(213, 41);
+            addToRecipebook.TabIndex = 10;
+            addToRecipebook.Text = "Add To Recipebook";
+            addToRecipebook.UseVisualStyleBackColor = true;
+            addToRecipebook.Click += button3_Click;
             // 
-            // listBox1
+            // ingredientsBox
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(24, 102);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(327, 304);
-            listBox1.TabIndex = 11;
-            listBox1.DoubleClick += listBox1_DoubleClick;
+            ingredientsBox.FormattingEnabled = true;
+            ingredientsBox.Location = new Point(24, 102);
+            ingredientsBox.Name = "ingredientsBox";
+            ingredientsBox.Size = new Size(327, 304);
+            ingredientsBox.TabIndex = 11;
+            ingredientsBox.DoubleClick += listBox1_DoubleClick;
             // 
             // label1
             // 
@@ -133,12 +133,12 @@
             // 
             panel1.BackColor = Color.MediumPurple;
             panel1.Controls.Add(label6);
-            panel1.Controls.Add(button5);
-            panel1.Controls.Add(button4);
+            panel1.Controls.Add(doneIngredientsButton);
+            panel1.Controls.Add(addIngredientsButton);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label1);
             panel1.Enabled = false;
-            panel1.Location = new Point(400, 129);
+            panel1.Location = new Point(348, 102);
             panel1.Name = "panel1";
             panel1.Size = new Size(284, 128);
             panel1.TabIndex = 14;
@@ -154,25 +154,25 @@
             label6.TabIndex = 16;
             label6.Text = "Add Ingredients";
             // 
-            // button5
+            // doneIngredientsButton
             // 
-            button5.Location = new Point(171, 91);
-            button5.Name = "button5";
-            button5.Size = new Size(94, 29);
-            button5.TabIndex = 15;
-            button5.Text = "Done";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            doneIngredientsButton.Location = new Point(171, 91);
+            doneIngredientsButton.Name = "doneIngredientsButton";
+            doneIngredientsButton.Size = new Size(94, 29);
+            doneIngredientsButton.TabIndex = 15;
+            doneIngredientsButton.Text = "Done";
+            doneIngredientsButton.UseVisualStyleBackColor = true;
+            doneIngredientsButton.Click += button5_Click;
             // 
-            // button4
+            // addIngredientsButton
             // 
-            button4.Location = new Point(19, 91);
-            button4.Name = "button4";
-            button4.Size = new Size(125, 29);
-            button4.TabIndex = 14;
-            button4.Text = "Add Ingredient";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            addIngredientsButton.Location = new Point(19, 91);
+            addIngredientsButton.Name = "addIngredientsButton";
+            addIngredientsButton.Size = new Size(125, 29);
+            addIngredientsButton.TabIndex = 14;
+            addIngredientsButton.Text = "Add Ingredient";
+            addIngredientsButton.UseVisualStyleBackColor = true;
+            addIngredientsButton.Click += button4_Click;
             // 
             // label3
             // 
@@ -183,15 +183,15 @@
             label3.TabIndex = 15;
             label3.Text = "Ingredients";
             // 
-            // button6
+            // addIngredients
             // 
-            button6.Location = new Point(171, 67);
-            button6.Name = "button6";
-            button6.Size = new Size(72, 29);
-            button6.TabIndex = 16;
-            button6.Text = "Add";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            addIngredients.Location = new Point(171, 67);
+            addIngredients.Name = "addIngredients";
+            addIngredients.Size = new Size(72, 29);
+            addIngredients.TabIndex = 16;
+            addIngredients.Text = "Add";
+            addIngredients.UseVisualStyleBackColor = true;
+            addIngredients.Click += button6_Click;
             // 
             // listBox2
             // 
@@ -211,26 +211,26 @@
             label2.TabIndex = 18;
             label2.Text = "Directions";
             // 
-            // button7
+            // addDirections
             // 
-            button7.Location = new Point(637, 67);
-            button7.Name = "button7";
-            button7.Size = new Size(66, 29);
-            button7.TabIndex = 19;
-            button7.Text = "Add";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
+            addDirections.Location = new Point(637, 67);
+            addDirections.Name = "addDirections";
+            addDirections.Size = new Size(66, 29);
+            addDirections.TabIndex = 19;
+            addDirections.Text = "Add";
+            addDirections.UseVisualStyleBackColor = true;
+            addDirections.Click += button7_Click;
             // 
             // panel2
             // 
             panel2.BackColor = Color.PaleGreen;
             panel2.Controls.Add(label5);
-            panel2.Controls.Add(button9);
-            panel2.Controls.Add(button8);
+            panel2.Controls.Add(doneDirectionButton);
+            panel2.Controls.Add(addDirectionButton);
             panel2.Controls.Add(richTextBox1);
             panel2.Controls.Add(label4);
             panel2.Enabled = false;
-            panel2.Location = new Point(28, 119);
+            panel2.Location = new Point(47, 102);
             panel2.Name = "panel2";
             panel2.Size = new Size(366, 180);
             panel2.TabIndex = 20;
@@ -246,25 +246,25 @@
             label5.TabIndex = 4;
             label5.Text = "Add Directions";
             // 
-            // button9
+            // doneDirectionButton
             // 
-            button9.Location = new Point(250, 143);
-            button9.Name = "button9";
-            button9.Size = new Size(94, 29);
-            button9.TabIndex = 3;
-            button9.Text = "Done";
-            button9.UseVisualStyleBackColor = true;
-            button9.Click += button9_Click;
+            doneDirectionButton.Location = new Point(250, 143);
+            doneDirectionButton.Name = "doneDirectionButton";
+            doneDirectionButton.Size = new Size(94, 29);
+            doneDirectionButton.TabIndex = 3;
+            doneDirectionButton.Text = "Done";
+            doneDirectionButton.UseVisualStyleBackColor = true;
+            doneDirectionButton.Click += button9_Click;
             // 
-            // button8
+            // addDirectionButton
             // 
-            button8.Location = new Point(28, 143);
-            button8.Name = "button8";
-            button8.Size = new Size(124, 29);
-            button8.TabIndex = 2;
-            button8.Text = "Add DIrection";
-            button8.UseVisualStyleBackColor = true;
-            button8.Click += button8_Click;
+            addDirectionButton.Location = new Point(28, 143);
+            addDirectionButton.Name = "addDirectionButton";
+            addDirectionButton.Size = new Size(124, 29);
+            addDirectionButton.TabIndex = 2;
+            addDirectionButton.Text = "Add DIrection";
+            addDirectionButton.UseVisualStyleBackColor = true;
+            addDirectionButton.Click += button8_Click;
             // 
             // richTextBox1
             // 
@@ -283,62 +283,64 @@
             label4.TabIndex = 0;
             label4.Text = "Direction:";
             // 
-            // button10
+            // deleteIngredient
             // 
-            button10.Location = new Point(257, 67);
-            button10.Name = "button10";
-            button10.Size = new Size(78, 29);
-            button10.TabIndex = 21;
-            button10.Text = "Delete";
-            button10.UseVisualStyleBackColor = true;
-            button10.Click += button10_Click;
+            deleteIngredient.Location = new Point(257, 67);
+            deleteIngredient.Name = "deleteIngredient";
+            deleteIngredient.Size = new Size(78, 29);
+            deleteIngredient.TabIndex = 21;
+            deleteIngredient.Text = "Delete";
+            deleteIngredient.UseVisualStyleBackColor = true;
+            deleteIngredient.Click += button10_Click;
             // 
-            // button11
+            // deleteDirections
             // 
-            button11.Location = new Point(727, 68);
-            button11.Name = "button11";
-            button11.Size = new Size(81, 29);
-            button11.TabIndex = 22;
-            button11.Text = "Delete";
-            button11.UseVisualStyleBackColor = true;
-            button11.Click += button11_Click;
+            deleteDirections.Location = new Point(727, 68);
+            deleteDirections.Name = "deleteDirections";
+            deleteDirections.Size = new Size(81, 29);
+            deleteDirections.TabIndex = 22;
+            deleteDirections.Text = "Delete";
+            deleteDirections.UseVisualStyleBackColor = true;
+            deleteDirections.Click += button11_Click;
             // 
-            // button12
+            // finishedEditing
             // 
-            button12.Enabled = false;
-            button12.Location = new Point(38, 439);
-            button12.Name = "button12";
-            button12.Size = new Size(213, 42);
-            button12.TabIndex = 23;
-            button12.Text = "Finished";
-            button12.UseVisualStyleBackColor = true;
-            button12.Visible = false;
-            button12.Click += button12_Click;
+            finishedEditing.Enabled = false;
+            finishedEditing.Location = new Point(38, 439);
+            finishedEditing.Name = "finishedEditing";
+            finishedEditing.Size = new Size(213, 42);
+            finishedEditing.TabIndex = 23;
+            finishedEditing.Text = "Finished";
+            finishedEditing.UseVisualStyleBackColor = true;
+            finishedEditing.Visible = false;
+            finishedEditing.Click += button12_Click;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(887, 505);
+            ClientSize = new Size(857, 505);
             Controls.Add(panel1);
-            Controls.Add(button12);
-            Controls.Add(button11);
-            Controls.Add(button10);
+            Controls.Add(finishedEditing);
+            Controls.Add(deleteDirections);
+            Controls.Add(deleteIngredient);
             Controls.Add(panel2);
-            Controls.Add(button7);
+            Controls.Add(addDirections);
             Controls.Add(label2);
             Controls.Add(listBox2);
-            Controls.Add(button6);
+            Controls.Add(addIngredients);
             Controls.Add(label3);
-            Controls.Add(listBox1);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox21);
+            Controls.Add(ingredientsBox);
+            Controls.Add(addToRecipebook);
+            Controls.Add(resetButton);
+            Controls.Add(doneAdding);
+            Controls.Add(recipeName);
             Controls.Add(label25);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "Form2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Recipes";
+            TopMost = true;
             Load += Form2_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -350,30 +352,30 @@
 
         #endregion
         private Label label25;
-        private TextBox textBox21;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private ListBox listBox1;
+        private TextBox recipeName;
+        private Button doneAdding;
+        private Button resetButton;
+        private Button addToRecipebook;
+        private ListBox ingredientsBox;
         private Label label1;
         private TextBox textBox1;
         private Panel panel1;
-        private Button button5;
-        private Button button4;
+        private Button doneIngredientsButton;
+        private Button addIngredientsButton;
         private Label label3;
-        private Button button6;
+        private Button addIngredients;
         private ListBox listBox2;
         private Label label2;
-        private Button button7;
+        private Button addDirections;
         private Panel panel2;
-        private Button button8;
+        private Button addDirectionButton;
         private RichTextBox richTextBox1;
         private Label label4;
-        private Button button9;
+        private Button doneDirectionButton;
         private Label label6;
         private Label label5;
-        private Button button10;
-        private Button button11;
-        private Button button12;
+        private Button deleteIngredient;
+        private Button deleteDirections;
+        private Button finishedEditing;
     }
 }
