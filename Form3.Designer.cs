@@ -49,25 +49,26 @@
             listBox1.FormattingEnabled = true;
             listBox1.Location = new Point(0, 0);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(212, 450);
+            listBox1.Size = new Size(269, 450);
             listBox1.Sorted = true;
             listBox1.TabIndex = 0;
+            listBox1.Click += listBox1_Click;
             // 
             // button1
             // 
-            button1.Location = new Point(253, 12);
+            button1.Location = new Point(268, 0);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(120, 40);
             button1.TabIndex = 1;
-            button1.Text = "View";
+            button1.Text = "Refresh";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(388, 12);
+            button2.Location = new Point(405, 0);
             button2.Name = "button2";
-            button2.Size = new Size(94, 29);
+            button2.Size = new Size(120, 40);
             button2.TabIndex = 2;
             button2.Text = "Delete";
             button2.UseVisualStyleBackColor = true;
@@ -75,9 +76,9 @@
             // 
             // button3
             // 
-            button3.Location = new Point(523, 12);
+            button3.Location = new Point(542, 0);
             button3.Name = "button3";
-            button3.Size = new Size(94, 29);
+            button3.Size = new Size(120, 40);
             button3.TabIndex = 3;
             button3.Text = "Edit";
             button3.UseVisualStyleBackColor = true;
@@ -92,9 +93,9 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(268, 84);
+            panel1.Location = new Point(268, 46);
             panel1.Name = "panel1";
-            panel1.Size = new Size(484, 344);
+            panel1.Size = new Size(531, 404);
             panel1.TabIndex = 4;
             panel1.Visible = false;
             // 
@@ -105,14 +106,14 @@
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
             textBox1.ScrollBars = ScrollBars.Vertical;
-            textBox1.Size = new Size(432, 142);
+            textBox1.Size = new Size(494, 205);
             textBox1.TabIndex = 5;
             // 
             // label5
             // 
-            label5.Location = new Point(22, 88);
+            label5.Location = new Point(29, 88);
             label5.Name = "label5";
-            label5.Size = new Size(429, 57);
+            label5.Size = new Size(491, 57);
             label5.TabIndex = 4;
             label5.Text = "label5";
             // 
@@ -154,9 +155,9 @@
             // 
             // button4
             // 
-            button4.Location = new Point(658, 12);
+            button4.Location = new Point(679, 0);
             button4.Name = "button4";
-            button4.Size = new Size(94, 29);
+            button4.Size = new Size(120, 40);
             button4.TabIndex = 5;
             button4.Text = "Done";
             button4.UseVisualStyleBackColor = true;

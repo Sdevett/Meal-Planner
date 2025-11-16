@@ -126,10 +126,23 @@ namespace Meal_Planner
 
         private void button2_Click(object sender, EventArgs e)
         {
-            recipeName.Clear();
-            ingredientsBox.Items.Clear();
-            listBox2.Items.Clear();
-            recipeName.Focus();
+            DialogResult question = MessageBox.Show
+                (
+                " Any recipes added after you click this button will only " +
+                "show up after the application is refreshed." +
+                " Are you sure you would like to proceed?", "Attention!!",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation
+                );
+            bool proceed = question == DialogResult.Yes;
+            if (proceed)
+            {
+                this.TopMost = true;
+                resetButton.Visible = false;
+                recipeName.Clear();
+                ingredientsBox.Items.Clear();
+                listBox2.Items.Clear();
+                recipeName.Focus();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -152,6 +165,8 @@ namespace Meal_Planner
             selected.setName(recipeName.Text);
             selected.setIngredients(ingredientsBox.Items.Cast<string>().ToList());
             selected.setDirections(listBox2.Items.Cast<string>().ToList());
+            ingredientsBox.Items.Clear();
+            listBox2.Items.Clear();
             Close();
         }
 
@@ -163,7 +178,7 @@ namespace Meal_Planner
             return recipeBook;
         }
 
-        public List<Recipe> EditRecipe(List<Recipe> recipes, int selectedIndex)
+        public List<Recipe> EditRecipe(List<Recipe> recipes, Recipe editRecipe)
         {
             doneAdding.Enabled = false;
             resetButton.Enabled = false;
@@ -176,9 +191,11 @@ namespace Meal_Planner
             this.Text = "Edit Recipe";
             recipeBook = recipes;
 
-            selected = recipes[selectedIndex];
-            recipeName.Text = selected.getName();
+            foreach (Recipe i in recipes)
+                if (i == editRecipe)
+                    selected = i;
 
+            recipeName.Text = selected.getName();
             List<string> selectedData = selected.getIngredients();
             foreach (string item in selectedData)
                 ingredientsBox.Items.Add(item);
@@ -187,7 +204,7 @@ namespace Meal_Planner
                 listBox2.Items.Add(item);
 
             this.ShowDialog();
-            return recipeBook;
+            return recipes;
         }
 
         private void listBox2_DoubleClick(object sender, EventArgs e)
@@ -217,6 +234,28 @@ namespace Meal_Planner
                 addIngredientsButton.Visible = false;
 
             }
+        }
+
+        private void ingredientsBox_DragEnter(object sender, DragEventArgs e)
+        {
+            bool dragInfoIsText = e.Data.GetDataPresent(DataFormats.Text);
+            if (dragInfoIsText)
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void ingredientsBox_DragDrop(object sender, DragEventArgs e)
+        {
+                string dropInfo = (string)e.Data.GetData(DataFormats.Text);
+                if(!String.IsNullOrWhiteSpace(dropInfo))
+                {
+                    ingredientsBox.Items.Add(dropInfo.Trim());
+                }
         }
     }
 }

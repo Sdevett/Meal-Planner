@@ -3,7 +3,6 @@
     public partial class Form3 : Form
     {
         List<Recipe> recipeBook = new List<Recipe>();
-        Recipe selected;
         Form2 editForm;
 
         public Form3()
@@ -14,23 +13,24 @@
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex >= 0)
+            if (listBox1.SelectedIndex > -1)
             {
-                selected = (Recipe)listBox1.Items[listBox1.SelectedIndex];
+                Recipe selected = (Recipe)listBox1.Items[listBox1.SelectedIndex];
                 label2.Text = selected.getName();
                 List<string> selectedList = selected.getIngredients();
                 label5.Text = string.Join(", ", selectedList);
                 panel1.Visible = true;
                 selectedList = selected.getDirections();
                 textBox1.Text = string.Join("\r\n\r\n", selectedList);
+                selectedList = null;
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex >= 0)
+            if (listBox1.SelectedIndex > -1)
             {
-                selected = (Recipe)listBox1.Items[listBox1.SelectedIndex];
+               Recipe selected = (Recipe)listBox1.Items[listBox1.SelectedIndex];
                 recipeBook.Remove(selected);
                 listBox1.DataSource = null;
                 listBox1.DataSource = recipeBook;
@@ -39,9 +39,14 @@
 
         private void button3_Click(object sender, EventArgs e)
         {
-            selected = (Recipe)listBox1.Items[listBox1.SelectedIndex];
-            recipeBook = editForm.EditRecipe(recipeBook, listBox1.SelectedIndex);
-            panel1.Visible = false;
+            if (listBox1.SelectedIndex > -1)
+            {
+                Recipe selected = (Recipe)listBox1.Items[listBox1.SelectedIndex];
+                recipeBook = editForm.EditRecipe(recipeBook, selected);
+                listBox1.DataSource = null;
+                listBox1.DataSource = recipeBook;
+                panel1.Visible = false;
+            }
         }
 
         public List<Recipe> showRecipes(List<Recipe> recipes)
@@ -55,6 +60,11 @@
         private void button4_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void listBox1_Click(object sender, EventArgs e)
+        {
+            button1_Click(sender, e);
         }
     }
 }

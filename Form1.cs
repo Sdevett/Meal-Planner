@@ -22,8 +22,6 @@ namespace Meal_Planner
 
         private void button5_Click(object sender, EventArgs e)
         {
-
-            Close();
             FileInfo outputStatus;
 
             outputStatus = new FileInfo("recipebook.txt");
@@ -52,7 +50,9 @@ namespace Meal_Planner
                 }
 
                 string data = sb.ToString();
+                File.Delete(outputStatus.FullName);
                 File.WriteAllText(outputStatus.Name, data);
+                Close();
             }
         }
 

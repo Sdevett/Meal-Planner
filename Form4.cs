@@ -50,6 +50,7 @@ namespace Meal_Planner
             dataGridView1.CurrentCell =
                    dataGridView1.CurrentCell =
                    dataGridView1.Rows[0].Cells[1];
+            dataGridView1.Visible = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -68,6 +69,7 @@ namespace Meal_Planner
 
         public void SelectedMeals(List<Recipe> recipes)
         {
+            textBox1.Text = "7";
             recipeBook = recipes;
             listBox1.DataSource = recipeBook;
             this.ShowDialog();
@@ -137,17 +139,7 @@ namespace Meal_Planner
                 }
             }
 
-
-            dataGridView1.Rows.Clear();
-            dataGridView1.Columns.Clear();
-
-            dateTimePicker1.Enabled = true;
-            textBox1.Enabled = true;
-            label1.Text = "Start Date:";
-            listBox1.Enabled = false;
-            listBox1.Visible = false;
-            button3.Enabled = false;
-            button3.Visible = false;
+            button2_Click(sender, e);
         }
     }
 }

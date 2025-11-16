@@ -43,6 +43,11 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(282, 47);
             dataGridView1.Name = "dataGridView1";
@@ -50,6 +55,7 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(573, 466);
             dataGridView1.TabIndex = 0;
+            dataGridView1.Visible = false;
             // 
             // dateTimePicker1
             // 
@@ -74,7 +80,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(107, 27);
             textBox1.TabIndex = 3;
-            textBox1.Text = "14";
+            textBox1.Text = "7";
             // 
             // label2
             // 
@@ -100,7 +106,7 @@
             // 
             listBox1.Enabled = false;
             listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(12, 52);
+            listBox1.Location = new Point(14, 51);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(250, 384);
             listBox1.TabIndex = 6;
@@ -113,7 +119,7 @@
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 7;
-            button2.Text = "Done";
+            button2.Text = "Cancel";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 

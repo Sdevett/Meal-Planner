@@ -61,7 +61,7 @@
             // label25
             // 
             label25.AutoSize = true;
-            label25.Location = new Point(24, 25);
+            label25.Location = new Point(24, 21);
             label25.Name = "label25";
             label25.Size = new Size(101, 20);
             label25.TabIndex = 6;
@@ -71,7 +71,7 @@
             // 
             recipeName.Location = new Point(133, 18);
             recipeName.Name = "recipeName";
-            recipeName.Size = new Size(170, 27);
+            recipeName.Size = new Size(292, 27);
             recipeName.TabIndex = 7;
             // 
             // doneAdding
@@ -90,7 +90,7 @@
             resetButton.Name = "resetButton";
             resetButton.Size = new Size(213, 41);
             resetButton.TabIndex = 9;
-            resetButton.Text = "Reset";
+            resetButton.Text = "Add Recipe From Website";
             resetButton.UseVisualStyleBackColor = true;
             resetButton.Click += button2_Click;
             // 
@@ -106,11 +106,14 @@
             // 
             // ingredientsBox
             // 
+            ingredientsBox.AllowDrop = true;
             ingredientsBox.FormattingEnabled = true;
             ingredientsBox.Location = new Point(24, 102);
             ingredientsBox.Name = "ingredientsBox";
-            ingredientsBox.Size = new Size(327, 304);
+            ingredientsBox.Size = new Size(334, 304);
             ingredientsBox.TabIndex = 11;
+            ingredientsBox.DragDrop += ingredientsBox_DragDrop;
+            ingredientsBox.DragEnter += ingredientsBox_DragEnter;
             ingredientsBox.DoubleClick += listBox1_DoubleClick;
             // 
             // label1
@@ -126,7 +129,7 @@
             // 
             textBox1.Location = new Point(95, 46);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(170, 27);
+            textBox1.Size = new Size(292, 27);
             textBox1.TabIndex = 13;
             // 
             // panel1
@@ -138,9 +141,9 @@
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label1);
             panel1.Enabled = false;
-            panel1.Location = new Point(348, 102);
+            panel1.Location = new Point(357, 103);
             panel1.Name = "panel1";
-            panel1.Size = new Size(284, 128);
+            panel1.Size = new Size(408, 135);
             panel1.TabIndex = 14;
             panel1.Visible = false;
             // 
@@ -156,7 +159,7 @@
             // 
             // doneIngredientsButton
             // 
-            doneIngredientsButton.Location = new Point(171, 91);
+            doneIngredientsButton.Location = new Point(293, 94);
             doneIngredientsButton.Name = "doneIngredientsButton";
             doneIngredientsButton.Size = new Size(94, 29);
             doneIngredientsButton.TabIndex = 15;
@@ -166,7 +169,7 @@
             // 
             // addIngredientsButton
             // 
-            addIngredientsButton.Location = new Point(19, 91);
+            addIngredientsButton.Location = new Point(18, 94);
             addIngredientsButton.Name = "addIngredientsButton";
             addIngredientsButton.Size = new Size(125, 29);
             addIngredientsButton.TabIndex = 14;
@@ -195,6 +198,7 @@
             // 
             // listBox2
             // 
+            listBox2.AllowDrop = true;
             listBox2.FormattingEnabled = true;
             listBox2.Location = new Point(408, 102);
             listBox2.Name = "listBox2";
@@ -230,9 +234,9 @@
             panel2.Controls.Add(richTextBox1);
             panel2.Controls.Add(label4);
             panel2.Enabled = false;
-            panel2.Location = new Point(47, 102);
+            panel2.Location = new Point(56, 103);
             panel2.Name = "panel2";
-            panel2.Size = new Size(366, 180);
+            panel2.Size = new Size(355, 246);
             panel2.TabIndex = 20;
             panel2.Visible = false;
             // 
@@ -248,7 +252,7 @@
             // 
             // doneDirectionButton
             // 
-            doneDirectionButton.Location = new Point(250, 143);
+            doneDirectionButton.Location = new Point(250, 190);
             doneDirectionButton.Name = "doneDirectionButton";
             doneDirectionButton.Size = new Size(94, 29);
             doneDirectionButton.TabIndex = 3;
@@ -258,7 +262,7 @@
             // 
             // addDirectionButton
             // 
-            addDirectionButton.Location = new Point(28, 143);
+            addDirectionButton.Location = new Point(12, 190);
             addDirectionButton.Name = "addDirectionButton";
             addDirectionButton.Size = new Size(124, 29);
             addDirectionButton.TabIndex = 2;
@@ -270,7 +274,7 @@
             // 
             richTextBox1.Location = new Point(89, 52);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(255, 77);
+            richTextBox1.Size = new Size(255, 122);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             // 
@@ -317,6 +321,7 @@
             // 
             // Form2
             // 
+            AllowDrop = true;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(857, 505);
@@ -340,7 +345,6 @@
             Name = "Form2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add Recipes";
-            TopMost = true;
             Load += Form2_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
